@@ -28,7 +28,6 @@ var aw_users = [
 	{ nick : '', placeholder : 0 },
 ];
 
-
 // EZT A RÉSZT NE MÓDOSÍTSD !!!
 $(document).ready(function(){
 

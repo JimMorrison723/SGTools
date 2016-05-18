@@ -18,6 +18,5 @@ var pt_mode = 1;
 
 var pt_users = '';
 
-
 // EZT A RÉSZT NE MÓDOSÍTSD !!!
 $(document).ready(function(){function s(){alert("Ez egy privát téma, nincs jogosultságod az olvasásához!"),history.go(-1)}pt_users=pt_users.split(",");var t=$("#comments-login span").html();0==pt_mode?-1==pt_users.indexOf(t)&&s():-1!=pt_users.indexOf(t)&&s()});

@@ -3,7 +3,6 @@
 // Frissítette: Jim Morrison
 // Inspiráció: cSuwwi - Drom - http://drom.hu/
 
-
 // Tiltott felhasználók
 // Vesszõvel elválasztva sorold fel azokat a felhasználóneveket
 // akiket ki akarsz tiltani a témából. Szóközt ne használj!

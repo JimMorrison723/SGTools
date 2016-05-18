@@ -3,7 +3,6 @@
 // Frissítette: Jim Morrison
 // Inspiráció: cSuwwi - Drom - http://drom.hu/
 
-
 // Rejtett felhasználók
 // Vesszõvel elválasztva sorold fel azokat a felhasználóneveket
 // akiknek rejteni szeretnéd az üzeneteit a témában. Szóközt ne használj!

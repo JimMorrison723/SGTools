@@ -18,6 +18,5 @@ var rot_mode = 1;
 
 var rot_users = '';
 
-
 // EZT A RÉSZT NE MÓDOSÍTSD !!!
 $(document).ready(function(){rot_users=rot_users.split(","),$("form#form-post").submit(function(e){var t=$("#comments-login span").html();0==rot_mode?-1==rot_users.indexOf(t)&&(e.preventDefault(),alert("Nincs jogosultságod üzenetet küldeni ebbe a témába!")):-1!=rot_users.indexOf(t)&&(e.preventDefault(),alert("Nincs jogosultságod üzenetet küldeni ebbe a témába!"))})});

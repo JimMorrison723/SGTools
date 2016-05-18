@@ -9,6 +9,7 @@
 // sw_styles.push({ css : ['link1.css', 'link2,css'], js : ['link1.js'] });
 // sw_styles.push({ css : ['link3.css'], js : ['link2.js'] });
 
+// ELAVULT
 
 var sw_styles = new Array();
 	sw_styles.push({ css : [''], js : [''] });

@@ -1,22 +1,23 @@
-// SG.hu post_awards v1.0 20111112
-// Készítette: dzsani
-// Inspiráció: cSuwwi - Drom - http://drom.hu/
+// SG.hu post_awards v2.0 20160518
+// KÃ©szÃ­tette: dzsani
+// FrissÃ­tette: Jim Morrison
+// InspirÃ¡ciÃ³: cSuwwi - Drom - http://drom.hu/
 
 // Awards lista Objektum
-// Az objektum elemei közül egyedül a nick elemet kötelezõ megadni,
-// a többi tetszés szerint elhagyható. Az objektum lehetséges elemeit
-// lentebb láthatod.
+// Az objektum elemei kÃ¶zÃ¼l egyedÃ¼l a nick elemet kÃ¶telezÃµ megadni,
+// a tÃ¶bbi tetszÃ©s szerint elhagyhatÃ³. Az objektum lehetsÃ©ges elemeit
+// lentebb lÃ¡thatod.
 
-// Az awards objektum lehetséges elemei:
-// - nick: kötelezõ, keresett felhasználó
-// - placeholder: elhagyható, 0: logó után, 1: kommentazonosító elé, alapértelmezett: 1 
-// - image: elhagyható, képet szúr be, egy kép URL-jét kell megadni
-// - text: elhagyható, egy szöveget szúr be a script
-// - tooltip: elhagyható, egérrel a beszúrt elemek fölé állva kiírja az itt megadott szöveget
-// - color: elhagyható, a beszúrt szöveg színét lehet megadni vele
-// - url: elhagyható, a beszúrt képet ésvagy szöveget lehet linkelni vele
+// Az awards objektum lehetsÃ©ges elemei:
+// - nick: kÃ¶telezÃµ, keresett felhasznÃ¡lÃ³
+// - placeholder: elhagyhatÃ³, 0: logÃ³ utÃ¡n, 1: kommentazonosÃ­tÃ³ elÃ©, alapÃ©rtelmezett: 1 
+// - image: elhagyhatÃ³, kÃ©pet szÃºr be, egy kÃ©p URL-jÃ©t kell megadni
+// - text: elhagyhatÃ³, egy szÃ¶veget szÃºr be a script
+// - tooltip: elhagyhatÃ³, egÃ©rrel a beszÃºrt elemek fÃ¶lÃ© Ã¡llva kiÃ­rja az itt megadott szÃ¶veget
+// - color: elhagyhatÃ³, a beszÃºrt szÃ¶veg szÃ­nÃ©t lehet megadni vele
+// - url: elhagyhatÃ³, a beszÃºrt kÃ©pet Ã©svagy szÃ¶veget lehet linkelni vele
 
-// Példa:
+// PÃ©lda:
 
 // var aw_users = [
 //		{ nick : 'Ability', placeholder : 0, image : '/kep/faces/vigyor3.gif' },
@@ -24,8 +25,8 @@
 // ];
 
 var aw_users = [
-		{ nick : '', placeholder : 0 },
+	{ nick : '', placeholder : 0 },
 ];
 
-// EZT A RÉSZT NE MÓDOSÍTSD !!!
-$(document).ready(function(){$(".topichead").each(function(){var a=$(this).find('a[href*="forumuserinfo.php"] img').length?$(this).find('a[href*="forumuserinfo.php"] img').attr("title"):$(this).find('a[href*="forumuserinfo.php"]').html();a=a.replace(" - VIP","");for(c=0;c<aw_users.length;c++){if(a==aw_users[c]["nick"]){if(typeof aw_users[c]["placeholder"]!="undefined"&&aw_users[c]["placeholder"]==0){var b=$("<span></span>").appendTo($(this).find("td.left:eq(1)"))}else{var b=$("<span></span>").insertAfter($(this).find("a:last").prev());$("<span> | </span>").insertBefore(b)}if(typeof aw_users[c]["image"]!="undefined"&&aw_users[c]["image"]!=""){$('<img src="'+aw_users[c]["image"]+'" align="absmiddle">').appendTo(b).css("border",0)}if(typeof aw_users[c]["text"]!="undefined"&&aw_users[c]["text"]!=""){$("<span> "+aw_users[c]["text"]+"</span>").appendTo(b)}if(typeof aw_users[c]["url"]!="undefined"&&aw_users[c]["url"]!=""){$(b).find("img, span").wrap('<a href="'+aw_users[c]["url"]+'" target="_blank">');$(b).find("a").css({"text-decoration":"none",color:"#fff"})}if(typeof aw_users[c]["color"]!="undefined"&&aw_users[c]["color"]!=""){$(b).find("a, span").css("color",aw_users[c]["color"])}if(typeof aw_users[c]["tooltip"]!="undefined"&&aw_users[c]["tooltip"]!=""){$(b).find("img, span, a").attr("title",aw_users[c]["tooltip"])}}}})})
+// EZT A RÃ‰SZT NE MÃ“DOSÃTSD !!!
+$(document).ready(function(){$(".post header").each(function(){var e=$(this).find('a[href*="felhasznalo"] img').length?$(this).find('a[href*="felhasznalo"] img').attr("title"):$(this).find('a[href*="felhasznalo"]').html();for(e=e.replace(" - VIP",""),c=0;c<aw_users.length;c++)if(e==aw_users[c].nick){if("undefined"!=typeof aw_users[c].placeholder&&0==aw_users[c].placeholder)var s=$('<span class="posted pull-right"></span>').insertAfter($(this).find("a:last"));else var s=$('<span class="posted pull-right"></span>').insertAfter($(this).find("a:last").prev());"undefined"!=typeof aw_users[c].image&&""!=aw_users[c].image&&$('<img src="'+aw_users[c].image+'" align="absmiddle">').appendTo(s).css("border",0),"undefined"!=typeof aw_users[c].text&&""!=aw_users[c].text&&$('<span class=""> '+aw_users[c].text+"</span>").appendTo(s),"undefined"!=typeof aw_users[c].url&&""!=aw_users[c].url&&($(s).find("img, span").wrap('<a href="'+aw_users[c].url+'" target="_blank">'),$(s).find("a").css({"text-decoration":"none",color:"#fff"})),"undefined"!=typeof aw_users[c].color&&""!=aw_users[c].color&&$(s).find("a, span").css("color",aw_users[c].color),"undefined"!=typeof aw_users[c].tooltip&&""!=aw_users[c].tooltip&&$(s).find("img, span, a").attr("title",aw_users[c].tooltip)}})});

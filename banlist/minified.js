@@ -1,14 +1,15 @@
-// SG.hu topic banlist v1.0 20111107
-// Készítette: dzsani
-// Inspiráció: cSuwwi - Drom - http://drom.hu/
+// SG.hu topic banlist v2.0 20160518
+// KÃ©szÃ­tette: dzsani 
+// FrissÃ­tette: Jim Morrison
+// InspirÃ¡ciÃ³: cSuwwi - Drom - http://drom.hu/
 
 
-// Tiltott felhasználók
-// Vesszõvel elválasztva sorold fel azokat a felhasználóneveket
-// akiket ki akarsz tiltani a témából. Szóközt ne használj!
-// Példa: var bl_users = 'név1,név2,név3';
+// Tiltott felhasznÃ¡lÃ³k
+// VesszÃµvel elvÃ¡lasztva sorold fel azokat a felhasznÃ¡lÃ³neveket
+// akiket ki akarsz tiltani a tÃ©mÃ¡bÃ³l. SzÃ³kÃ¶zt ne hasznÃ¡lj!
+// PÃ©lda: var bl_users = 'nÃ©v1,nÃ©v2,nÃ©v3';
 
 var bl_users = '';
 
-// EZT A RÉSZT NE MÓDOSÍTSD !!!
-$(document).ready(function(){bl_users=bl_users.split(',');$('.topichead').each(function(){var a=$(this).find('a[href*="forumuserinfo.php"] img').length?$(this).find('a[href*="forumuserinfo.php"] img').attr('title'):$(this).find('a[href*="forumuserinfo.php"]').html();a=a.replace(" - VIP","");if(bl_users.indexOf(a)!=-1){$(this).parents('center:first').hide()}})});
+// EZT A RÃ‰SZT NE MÃ“DOSÃTSD !!!
+$(document).ready(function(){bl_users=bl_users.split(","),$(".post").each(function(){var e=$(this).find('a[href*="felhasznalo"] img').length?$(this).find('[href*="felhasznalo"] img').attr("title"):$(this).find('[href*="felhasznalo"]').html();e=e.replace(" - VIP",""),-1!=bl_users.indexOf(e)&&$(this).hide()})});

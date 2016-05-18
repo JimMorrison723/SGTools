@@ -1,30 +1,27 @@
-// SG.hu hide_logos v1.0 20111114
-// KÈszÌtette: dzsani
+// SG.hu hide_logos v2.0 20160518
+// K√©sz√≠tette: dzsani
+// Friss√≠tette: Jim Morrison
 
-// Ezzel a script elt·volÌtja az ˆsszes logÛt
-// Ès a felhaszn·lÛnevet teszi a helyÈre.
+// Ezzel a script elt√°vol√≠tja az √∂sszes log√≥t
+// √©s a felhaszn√°l√≥nevet teszi a hely√©re.
 
-
-// EZT A R…SZT NE M”DOSÕTSD !!!
+// EZT A R√âSZT NE M√ìDOS√çTSD !!!
 $(document).ready(function() {
 	
-	$('.topichead').each(function() {
+	$('.post').each(function() {
 		
 		// Comments with logo image
-		if($(this).find('a[href*="forumuserinfo.php"] img').length) {
+		if($(this).find('a[href*="felhasznalo"] img').length) {
 		
 			// Find nickname
-			var nick = $(this).find('a[href*="forumuserinfo.php"] img').attr('title');
+			var nick = $(this).find('a[href*="felhasznalo"] img').attr('title');
 				nick = nick.replace(" - VIP","");
 			
 			// Remove logo
-			$(this).find('a[href*="forumuserinfo.php"] img').remove();
+			$(this).find('a[href*="felhasznalo"] img').remove();
 			
-			// Insert username
-			$(this).find('a[href*="forumuserinfo.php"]').html(nick);
-			
-			// Insert copyright
-			$(this).find('a[href*="forumuserinfo.php"]').before('&nbsp;&copy;&nbsp;');
+			// Insert copyright + username
+			$(this).find('a[href*="felhasznalo"]').html('&nbsp;&copy;&nbsp;' + nick);
 		}
 	});
 });

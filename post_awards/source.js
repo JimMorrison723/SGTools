@@ -1,22 +1,23 @@
-// SG.hu post_awards v1.0 20111112
-// Készítette: dzsani
-// Inspiráció: cSuwwi - Drom - http://drom.hu/
+// SG.hu post_awards v2.0 20160518
+// KÃ©szÃ­tette: dzsani
+// FrissÃ­tette: Jim Morrison
+// InspirÃ¡ciÃ³: cSuwwi - Drom - http://drom.hu/
 
 // Awards lista Objektum
-// Az objektum elemei közül egyedül a nick elemet kötelezõ megadni,
-// a többi tetszés szerint elhagyható. Az objektum lehetséges elemeit
-// lentebb láthatod.
+// Az objektum elemei kÃ¶zÃ¼l egyedÃ¼l a nick elemet kÃ¶telezÃµ megadni,
+// a tÃ¶bbi tetszÃ©s szerint elhagyhatÃ³. Az objektum lehetsÃ©ges elemeit
+// lentebb lÃ¡thatod.
 
-// Az awards objektum lehetséges elemei:
-// - nick: kötelezõ, keresett felhasználó
-// - placeholder: elhagyható, 0: logó után, 1: kommentazonosító elé, alapértelmezett: 1 
-// - image: elhagyható, képet szúr be, egy kép URL-jét kell megadni
-// - text: elhagyható, egy szöveget szúr be a script
-// - tooltip: elhagyható, egérrel a beszúrt elemek fölé állva kiírja az itt megadott szöveget
-// - color: elhagyható, a beszúrt szöveg színét lehet megadni vele
-// - url: elhagyható, a beszúrt képet ésvagy szöveget lehet linkelni vele
+// Az awards objektum lehetsÃ©ges elemei:
+// - nick: kÃ¶telezÃµ, keresett felhasznÃ¡lÃ³
+// - placeholder: elhagyhatÃ³, 0: logÃ³ utÃ¡n, 1: kommentazonosÃ­tÃ³ elÃ©, alapÃ©rtelmezett: 1 
+// - image: elhagyhatÃ³, kÃ©pet szÃºr be, egy kÃ©p URL-jÃ©t kell megadni
+// - text: elhagyhatÃ³, egy szÃ¶veget szÃºr be a script
+// - tooltip: elhagyhatÃ³, egÃ©rrel a beszÃºrt elemek fÃ¶lÃ© Ã¡llva kiÃ­rja az itt megadott szÃ¶veget
+// - color: elhagyhatÃ³, a beszÃºrt szÃ¶veg szÃ­nÃ©t lehet megadni vele
+// - url: elhagyhatÃ³, a beszÃºrt kÃ©pet Ã©svagy szÃ¶veget lehet linkelni vele
 
-// Példa:
+// PÃ©lda:
 
 // var aw_users = [
 //		{ nick : 'Ability', placeholder : 0, image : '/kep/faces/vigyor3.gif' },
@@ -24,17 +25,17 @@
 // ];
 
 var aw_users = [
-		{ nick : '', placeholder : 0 },
+	{ nick : '', placeholder : 0 },
 ];
 
 
-// EZT A RÉSZT NE MÓDOSÍTSD !!!
+// EZT A RÃ‰SZT NE MÃ“DOSÃTSD !!!
 $(document).ready(function(){
 
-	$('.topichead').each(function(){
+	$('.post header').each(function(){
 
 		// Find username
-		var nick = $(this).find('a[href*="forumuserinfo.php"] img').length ? $(this).find('a[href*="forumuserinfo.php"] img').attr('title') : $(this).find('a[href*="forumuserinfo.php"]').html();
+		var nick = $(this).find('a[href*="felhasznalo"] img').length ? $(this).find('a[href*="felhasznalo"] img').attr('title') : $(this).find('a[href*="felhasznalo"]').html();
 			nick = nick.replace(" - VIP","");
 		
 		// Iterate over the user list
@@ -45,10 +46,10 @@ $(document).ready(function(){
 				
 				// Insert placeholder
 				if(typeof aw_users[c]['placeholder'] != "undefined" && aw_users[c]['placeholder'] == 0) {
-					var placeholder = $('<span></span>').appendTo( $(this).find('td.left:eq(1)') );
+					var placeholder = $('<span class="posted pull-right"></span>').insertAfter( $(this).find('a:last') );
 				} else {
-					var placeholder = $('<span></span>').insertAfter( $(this).find('a:last').prev() );
-					$('<span> | </span>').insertBefore(placeholder);
+					var placeholder = $('<span class="posted pull-right"></span>').insertAfter( $(this).find('a:last').prev() );
+					/*$('<span class="separator pull-right"></span>').insertBefore(placeholder);*/
 				}
 				
 				// Insert the image
@@ -58,7 +59,7 @@ $(document).ready(function(){
 				
 				// Insert text
 				if(typeof aw_users[c]['text'] != "undefined" && aw_users[c]['text'] != '') {
-					$('<span> '+aw_users[c]['text']+'</span>').appendTo(placeholder);
+					$('<span class=""> '+aw_users[c]['text']+'</span>').appendTo(placeholder);
 				}
 
 				// Insert anchor

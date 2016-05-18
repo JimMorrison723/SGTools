@@ -1,24 +1,28 @@
-// SG.hu disable_point_system v1.0 20111113
-// KÈszÌtette: dzsani
+// SG.hu disable_point_system v2.0 20160518
+// K√©sz√≠tette: dzsani
+// Friss√≠tette: Jim Morrison
 
-// KÈszÌtsd el a GYIK v·z·t az al·bbi kÛd alapj·n!
+// K√©sz√≠tsd el a GYIK v√°z√°t az al√°bbi k√≥d alapj√°n!
 
 //	<ul id="faq_list">
 //		<li>
-//			<h1>KÈrdÈs</h1>
-//			<div>V·lasz</div>
+//			<h1>K√©rd√©s</h1>
+//			<div>V√°lasz</div>
 //		</li>
 //		<li>
-//			<h1>KÈrdÈs2</h1>
-//			<div>V·lasz2</div>
+//			<h1>K√©rd√©s2</h1>
+//			<div>V√°lasz2</div>
 //		</li>
 //	</ul>
 
-// Tedd be a gombot amivel megjelenÌted a GYIK-et!
+// Tedd be a gombot amivel megjelen√≠ted a GYIK-et!
 
-//	<a href="#" id="faq_toggle">Gyakran IsmÈtelt KÈrdÈsek</a>
+//	<a href="#" id="faq_toggle">Gyakran Ism√©telt K√©rd√©sek</a>
 
-// EZT A R…SZT NE M”DOSÕTSD !!!
+//	Opcion√°lis (m√≠g bet√∂lt az oldal/script ne jelenjen meg bannerban a FAQ sz√∂vege:
+//	#faq_list{display:none;}
+
+// EZT A R√âSZT NE M√ìDOS√çTSD !!!
 $(document).ready(function() {
 	
 	// Create overlay
@@ -37,7 +41,7 @@ $(document).ready(function() {
 	$('#faq_wrapper').css({ width : 850, margin : '0px auto', textAlign : 'justify' });
 	
 	// Create close button
-	$('<a href="#" id="faq_close">bez·r·s</a>').prependTo('body');
+	$('<a href="#" id="faq_close">bez√°r√°s</a>').prependTo('body');
 	
 	// Apply some styles to close button
 	$('#faq_close').css({ position : 'fixed', left : 10, top : 10, display : 'none', zIndex : 501, color : '#fff', textDecoration : 'none' });

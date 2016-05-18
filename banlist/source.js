@@ -1,33 +1,32 @@
-// SG.hu topic banlist v1.0 20111107
-// Készítette: dzsani
-// Inspiráció: cSuwwi - Drom - http://drom.hu/
+// SG.hu topic banlist v2.0 20160518
+// KÃ©szÃ­tette: dzsani 
+// FrissÃ­tette: Jim Morrison
+// InspirÃ¡ciÃ³: cSuwwi - Drom - http://drom.hu/
 
 
-// Tiltott felhasználók
-// Vesszõvel elválasztva sorold fel azokat a felhasználóneveket
-// akiket ki akarsz tiltani a témából. Szóközt ne használj!
-// Példa: var bl_users = 'név1,név2,név3';
+// Tiltott felhasznÃ¡lÃ³k
+// VesszÃµvel elvÃ¡lasztva sorold fel azokat a felhasznÃ¡lÃ³neveket
+// akiket ki akarsz tiltani a tÃ©mÃ¡bÃ³l. SzÃ³kÃ¶zt ne hasznÃ¡lj!
+// PÃ©lda: var bl_users = 'nÃ©v1,nÃ©v2,nÃ©v3';
 
 var bl_users = '';
 
-
-
-// EZT A RÉSZT NE MÓDOSÍTSD !!!
+// EZT A RÃ‰SZT NE MÃ“DOSÃTSD !!!
 $(document).ready(function() {
 	
 	// Create an array with the nicknames
 	bl_users = bl_users.split(',');
 	
 	// Iterate over the posts
-	$('.topichead').each(function() {
+	$('.post').each(function() {
 		
 		// Find username
-		var nick = $(this).find('a[href*="forumuserinfo.php"] img').length ? $(this).find('a[href*="forumuserinfo.php"] img').attr('title') : $(this).find('a[href*="forumuserinfo.php"]').html();
+		var nick = $(this).find('a[href*="felhasznalo"] img').length ? $(this).find('[href*="felhasznalo"] img').attr('title') : $(this).find('[href*="felhasznalo"]').html();
 			nick = nick.replace(" - VIP","");
 			
 		// Hide the comment if its from a banned user
 		if(bl_users.indexOf(nick) != -1) {
-			$(this).parents('center:first').hide();
+			$(this).hide();
 		}
 	});
 });

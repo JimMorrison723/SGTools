@@ -1,22 +1,23 @@
-// SG.hu read_only_topic v1.0 20111108
-// Készítette: dzsani
+// SG.hu read_only_topic v2.0 20160518
+// KÃ©szÃ­tette: dzsani
+// FrissÃ­tette: Jim Morrison
 
-// Mûködési mód
-// 0: fehérlista, 1: feketelista
-// Ha nullán hagyod, akkor azok írhatnak a topikba,
-// akiket felsorolsz a lentebbi névlistába.
-// Ha egyre állítod, akkor mindenki írhat, kivéve
-// a lentebb felsorolt felhasználók.
+// MÃ»kÃ¶dÃ©si mÃ³d
+// 0: fehÃ©rlista, 1: feketelista
+// Ha nullÃ¡n hagyod, akkor azok Ã­rhatnak a topikba,
+// akiket felsorolsz a lentebbi nÃ©vlistÃ¡ba.
+// Ha egyre Ã¡llÃ­tod, akkor mindenki Ã­rhat, kivÃ©ve
+// a lentebb felsorolt felhasznÃ¡lÃ³k.
 
 var rot_mode = 1;
 
-// Felhasználók fehérlistája
-// Vesszõvel elválasztva sorold fel azokat a felhasználóneveket
-// akiknek engedélyezed az üzenetküldést. Szóközt ne használj!
-// Példa: var pt_users = 'név1,név2,név3';
+// FelhasznÃ¡lÃ³k fehÃ©rlistÃ¡ja
+// VesszÃµvel elvÃ¡lasztva sorold fel azokat a felhasznÃ¡lÃ³neveket
+// akiknek engedÃ©lyezed az Ã¼zenetkÃ¼ldÃ©st. SzÃ³kÃ¶zt ne hasznÃ¡lj!
+// PÃ©lda: var rot_users = 'nÃ©v1,nÃ©v2,nÃ©v3';
 
 var rot_users = '';
 
 
-// EZT A RÉSZT NE MÓDOSÍTSD !!!
-$(document).ready(function(){rot_users=rot_users.split(',');$('form[name="newmessage"] a:last').click(function(e){var a=$('.std1:eq(1)').html().replace("Bejelentkezve: ","");if(rot_mode==0){if(rot_users.indexOf(a)==-1){e.preventDefault();alert('Nincs jogosultságod üzenetet küldeni ebbe a témába!')}}else{if(rot_users.indexOf(a)!=-1){e.preventDefault();alert('Nincs jogosultságod üzenetet küldeni ebbe a témába!')}}})});
+// EZT A RÃ‰SZT NE MÃ“DOSÃTSD !!!
+$(document).ready(function(){rot_users=rot_users.split(","),$("form#form-post").submit(function(e){var t=$("#comments-login span").html();0==rot_mode?-1==rot_users.indexOf(t)&&(e.preventDefault(),alert("Nincs jogosultsÃ¡god Ã¼zenetet kÃ¼ldeni ebbe a tÃ©mÃ¡ba!")):-1!=rot_users.indexOf(t)&&(e.preventDefault(),alert("Nincs jogosultsÃ¡god Ã¼zenetet kÃ¼ldeni ebbe a tÃ©mÃ¡ba!"))})});

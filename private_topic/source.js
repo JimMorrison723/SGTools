@@ -1,42 +1,23 @@
-// SG.hu private_topic v1.0 20111108
-// Készítette: dzsani
+// SG.hu private_topic v2.0 20160518
+// KÃ©szÃ­tette: dzsani
+// FrissÃ­tette: Jim Morrison
 
-// Mûködési mód
-// 0: fehérlista, 1: feketelista
-// Ha nullán hagyod, akkor azok léphetnek be a topikba,
-// akiket felsorolsz a lentebbi névlistába.
-// Ha egyre állítod, akkor mindenki beléphet, kivéve
-// a lentebb felsorolt felhasználók.
+// MÃ»kÃ¶dÃ©si mÃ³d
+// 0: fehÃ©rlista, 1: feketelista
+// Ha nullÃ¡n hagyod, akkor azok lÃ©phetnek be a topikba,
+// akiket felsorolsz a lentebbi nÃ©vlistÃ¡ba.
+// Ha egyre Ã¡llÃ­tod, akkor mindenki belÃ©phet, kivÃ©ve
+// a lentebb felsorolt felhasznÃ¡lÃ³k.
 
 var pt_mode = 1;
 
-// Felhasználók fehérlistája
-// Vesszõvel elválasztva sorold fel azokat a felhasználóneveket
-// akiknek engedélyezed a topikba lépést. Szóközt ne használj!
-// Példa: var pt_users = 'név1,név2,név3';
+// FelhasznÃ¡lÃ³k fehÃ©rlistÃ¡ja
+// VesszÃµvel elvÃ¡lasztva sorold fel azokat a felhasznÃ¡lÃ³neveket
+// akiknek engedÃ©lyezed a topikba lÃ©pÃ©st. SzÃ³kÃ¶zt ne hasznÃ¡lj!
+// PÃ©lda: var pt_users = 'nÃ©v1,nÃ©v2,nÃ©v3';
 
 var pt_users = '';
 
 
-// EZT A RÉSZT NE MÓDOSÍTSD !!!
-$(document).ready(function() {
-
-	// Create an array with the nicknames
-	pt_users = pt_users.split(',');
-
-	// Get nickname
-	var nick = $('.std1:eq(1)').html().replace("Bejelentkezve: ","");
-	
-	// Check user
-	if(pt_mode == 0) {
-		if(pt_users.indexOf(nick) == -1) { pt_redirectBack(); }
-	} else {
-		if(pt_users.indexOf(nick) != -1) { pt_redirectBack(); }
-	}
-	
-	// Hide layer plus redirect back
-	function pt_redirectBack() {
-		alert('Ez egy privát téma, nincs jogosultságod az olvasásához!');
-		history.go(-1)
-	}
-});
+// EZT A RÃ‰SZT NE MÃ“DOSÃTSD !!!
+$(document).ready(function(){function s(){alert("Ez egy privÃ¡t tÃ©ma, nincs jogosultsÃ¡god az olvasÃ¡sÃ¡hoz!"),history.go(-1)}pt_users=pt_users.split(",");var t=$("#comments-login span").html();0==pt_mode?-1==pt_users.indexOf(t)&&s():-1!=pt_users.indexOf(t)&&s()});
